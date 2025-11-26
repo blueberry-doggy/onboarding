@@ -10,7 +10,7 @@ To keep your work fully anonymous, please create a separate GitHub account for t
 
 You can make your account in any way that works for you, but here’s a simple method that we’ve found works well:
 
-- Visit a disposable email provider (e.g., generator.email) and create a temporary email.
+- Create a new, non-identifying Gmail account to use only for this study.
 - Sign up at https://github.com/signup with that email.
 - Choose a non-identifying username in the format `{favorite_fruit}-{favorite_animal}` (example: `mango-otter`).
 - Do not include personal details (name, photo, location) and use this account only for study-related work.
