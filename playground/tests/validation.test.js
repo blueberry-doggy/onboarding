@@ -44,3 +44,68 @@ test("accepts zero", () => {
   const result = convert("temperature", 0, "C", "F");
   strictEqual(result, 32);
 });
+
+// Unit code validation tests
+test("rejects unknown temperature unit (from)", () => {
+  throws(
+    () => convert("temperature", 100, "R", "F"),
+    /unknown.*unit/i,
+    "Should throw error for unknown temperature unit"
+  );
+});
+
+test("rejects unknown temperature unit (to)", () => {
+  throws(
+    () => convert("temperature", 100, "C", "R"),
+    /unknown.*unit/i,
+    "Should throw error for unknown temperature unit"
+  );
+});
+
+test("rejects unknown distance unit (from)", () => {
+  throws(
+    () => convert("distance", 100, "ft", "km"),
+    /unknown.*unit/i,
+    "Should throw error for unknown distance unit"
+  );
+});
+
+test("rejects unknown distance unit (to)", () => {
+  throws(
+    () => convert("distance", 100, "km", "ft"),
+    /unknown.*unit/i,
+    "Should throw error for unknown distance unit"
+  );
+});
+
+test("rejects unknown weight unit (from)", () => {
+  throws(
+    () => convert("weight", 100, "kg", "g"),
+    /unknown.*unit/i,
+    "Should throw error for unknown weight unit"
+  );
+});
+
+test("rejects unknown weight unit (to)", () => {
+  throws(
+    () => convert("weight", 100, "g", "kg"),
+    /unknown.*unit/i,
+    "Should throw error for unknown weight unit"
+  );
+});
+
+test("rejects invalid unit codes (case sensitivity)", () => {
+  throws(
+    () => convert("temperature", 100, "c", "f"),
+    /unknown.*unit/i,
+    "Unit codes should be case-sensitive"
+  );
+});
+
+test("rejects completely invalid unit codes", () => {
+  throws(
+    () => convert("distance", 100, "xyz", "abc"),
+    /unknown.*unit/i,
+    "Should throw error for nonsense unit codes"
+  );
+});
